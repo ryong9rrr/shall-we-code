@@ -1,5 +1,6 @@
 package j2kb.swc.shallwecode.user.persist.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import j2kb.swc.shallwecode.userproject.persist.entity.UserProject;
 import lombok.Builder;
 import lombok.Getter;
@@ -42,6 +43,7 @@ public class User {
     @OneToMany(mappedBy = "friend")
     private List<UserRelationship> friends;
 
+    @JsonIgnoreProperties({"founder"})
     @OneToMany(mappedBy = "project")
     private List<UserProject> projects;
 
