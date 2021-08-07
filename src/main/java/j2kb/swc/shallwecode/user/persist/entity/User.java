@@ -45,9 +45,11 @@ public class User {
     @OneToMany(mappedBy = "project")
     private List<UserProject> projects;
 
+    @Column(name = "withdrawal")
+    private String isWithdrawal = "N"; //탈퇴 여부
+
     private LocalDateTime created;
 
     private LocalDateTime modified;
-
 
 }

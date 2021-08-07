@@ -23,7 +23,10 @@ public class Project {
     private List<UserProject> participants;
 
     @Column(name = "finished")
-    private String isFinished;
+    private String isFinished = "N";
+
+    @Column(name = "canceled")
+    private String isCanceled = "N";
 
     private String content;
 
