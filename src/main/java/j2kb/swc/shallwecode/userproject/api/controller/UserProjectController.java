@@ -25,7 +25,7 @@ public class UserProjectController {
 
     @PostMapping("/api/userproject/{userId}/post/{projectId}")
     public ApiResponse<?> joinProject(@PathVariable Long userId,
-                                   @PathVariable Long projectId){
+                                      @PathVariable Long projectId){
 
         userProjectService.joinProjectService(userId, projectId);
         return new ApiResponse<>(HttpStatus.OK, "프로젝트 ID: "+projectId+"에 참가되었습니다.");
@@ -33,7 +33,7 @@ public class UserProjectController {
 
     @DeleteMapping("/api/userproject/{userId}/delete/{projectId}")
     public ApiResponse<?> leaveProject(@PathVariable Long userId,
-                             @PathVariable Long projectId){
+                                       @PathVariable Long projectId){
         userProjectService.leaveProjectService(userId, projectId);
         return new ApiResponse<>(HttpStatus.OK, "프로젝트 ID: "+projectId+"에 참가 취소을했습니다.");
     }

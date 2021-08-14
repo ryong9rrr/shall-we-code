@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import j2kb.swc.shallwecode.userproject.persist.entity.UserProject;
 import lombok.Builder;
 import lombok.Getter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -50,8 +52,10 @@ public class User {
     @Column(name = "withdrawal")
     private String isWithdrawal = "N"; //탈퇴 여부
 
+    @CreationTimestamp
     private LocalDateTime created;
 
+    @UpdateTimestamp
     private LocalDateTime modified;
 
 }

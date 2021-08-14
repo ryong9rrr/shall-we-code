@@ -17,14 +17,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    #    show-sql: true
+      show-sql: true
     properties:
       hibernate.format_sql: true
     database-platform: org.hibernate.dialect.H2Dialect
 
   datasource:
-#    url: jdbc:h2:mem:testdb  # 메모리에다 DB을 생성한다. 출처:https://galid1.tistory.com/611
-    url: jdbc:h2:~/test  # 로컬에다 DB을 생성한다. 출처:https://youngjinmo.github.io/2020/03/h2-database/
+    url: jdbc:h2:mem:testdb  # 메모리에다 DB을 생성한다. 출처:https://galid1.tistory.com/611
+#    url: jdbc:h2:~/test  # 로컬에다 DB을 생성한다. 출처:https://youngjinmo.github.io/2020/03/h2-database/
     driver-class-name: org.h2.Driver
     username: sa
     password:

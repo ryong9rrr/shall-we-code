@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import j2kb.swc.shallwecode.user.persist.entity.User;
 import j2kb.swc.shallwecode.userproject.persist.entity.UserProject;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -28,7 +30,7 @@ public class Project {
     private User founder;
 
 //    @JsonIgnoreProperties({"user"})
-    @OneToMany(mappedBy = "project", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
     private List<UserProject> participants;
 
     @Column(name = "finished")
@@ -43,14 +45,12 @@ public class Project {
 
     private Long recommendedCount;
 
+    @CreationTimestamp
     private LocalDateTime created;
 
+    @UpdateTimestamp
     private LocalDateTime modified;
 
-    @PrePersist
-    public void creatDate(){
-        this.created = LocalDateTime.now();
-    }
 
     public Project(String title, User founder, String isFinished, String content, String requiredSkills, Long recommendedCount, LocalDateTime created, LocalDateTime modified) {
         this.title = title;
